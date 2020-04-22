@@ -12,6 +12,8 @@ import subprocess
 
 stripe.api_key = _cfg("stripe-secret")
 
+currency = _cfg("currency")
+
 print("Processing monthly donations at " + str(datetime.utcnow()))
 
 donations = Donation.query \
@@ -29,7 +31,7 @@ for donation in donations:
         try:
             charge = stripe.Charge.create(
                 amount=donation.amount,
-                currency="usd",
+                currency=currency,
                 customer=user.stripe_customer,
                 description="Donation to " + _cfg("your-name")
             )
