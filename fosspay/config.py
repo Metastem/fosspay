@@ -1,5 +1,4 @@
 import logging
-import signal
 
 try:
     from configparser import ConfigParser
@@ -27,7 +26,6 @@ def load_config():
     global config
     config = ConfigParser()
     config.readfp(open('config.ini'))
-    signal.signal(signal.SIGHUP, lambda *args: load_config())
 
 load_config()
 
