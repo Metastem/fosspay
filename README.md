@@ -10,7 +10,7 @@ It works for individuals (like me) and it works for organizations. Expect to
 spend about an hour or two setting up everything and then you're good to go.
 
 For support, visit [#cmpwn on
-irc.freenode.net](http://webchat.freenode.net/?channels=cmpwn&uio=d4)
+irc.libera.chat](http://web.libera.chat/gamja/)
 or file a GitHub issue.
 
 ## Before you start
