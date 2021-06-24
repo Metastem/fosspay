@@ -1,5 +1,5 @@
-Hi {{your_name}}!
+Hi $your_name!
 
-Good news: {{user.email}} just donated {{amount}}{{frequency}}!
+Good news: $email just donated $amount$frequency!
 
-{{comment}}
+$comment

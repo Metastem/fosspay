@@ -1,4 +1,3 @@
-Hi {{your_name}}!
+Hi $your_name!
 
-Unfortunately, {{user.email}} has chosen to cancel their monthly donation of
-{{amount}}.
+Unfortunately, $email has chosen to cancel their monthly donation of $amount.
