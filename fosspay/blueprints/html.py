@@ -105,7 +105,7 @@ def index():
     else:
         gh_count = 0
         gh_sum = 0
-        gh_user = 0
+        gh_user = None
 
     return render_template("index.html", projects=projects,
             avatar=avatar, selected_project=selected_project,
@@ -136,7 +136,7 @@ def admin():
     first = request.args.get("first-run") is not None
     projects = Project.query.all()
     unspecified = Donation.query.filter(Donation.project == None).all()
-    donations = Donation.query.order_by(Donation.created.desc()).limit(50).all()
+    donations = Donation.query.order_by(Donation.created.desc()).all()
     return render_template("admin.html",
         first=first,
         projects=projects,

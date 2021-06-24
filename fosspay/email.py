@@ -15,9 +15,8 @@ from fosspay.currency import currency
 def send_thank_you(user, amount, monthly):
     if _cfg("smtp-host") == "":
         return
-    smtp = smtplib.SMTP(_cfg("smtp-host"), _cfgi("smtp-port"))
+    smtp = smtplib.SMTP_SSL(_cfg("smtp-host"), _cfgi("smtp-port"))
     smtp.ehlo()
-    smtp.starttls()
     smtp.login(_cfg("smtp-user"), _cfg("smtp-password"))
     with open("emails/thank-you") as f:
         tmpl = Template(f.read())
@@ -38,9 +37,8 @@ def send_thank_you(user, amount, monthly):
 def send_password_reset(user):
     if _cfg("smtp-host") == "":
         return
-    smtp = smtplib.SMTP(_cfg("smtp-host"), _cfgi("smtp-port"))
+    smtp = smtplib.SMTP_SSL(_cfg("smtp-host"), _cfgi("smtp-port"))
     smtp.ehlo()
-    smtp.starttls()
     smtp.login(_cfg("smtp-user"), _cfg("smtp-password"))
     with open("emails/reset-password") as f:
         tmpl = Template(f.read())
@@ -60,9 +58,8 @@ def send_password_reset(user):
 def send_declined(user, amount):
     if _cfg("smtp-host") == "":
         return
-    smtp = smtplib.SMTP(_cfg("smtp-host"), _cfgi("smtp-port"))
+    smtp = smtplib.SMTP_SSL(_cfg("smtp-host"), _cfgi("smtp-port"))
     smtp.ehlo()
-    smtp.starttls()
     smtp.login(_cfg("smtp-user"), _cfg("smtp-password"))
     with open("emails/declined") as f:
         tmpl = Template(f.read())
@@ -81,9 +78,8 @@ def send_declined(user, amount):
 def send_new_donation(user, donation):
     if _cfg("smtp-host") == "":
         return
-    smtp = smtplib.SMTP(_cfg("smtp-host"), _cfgi("smtp-port"))
+    smtp = smtplib.SMTP_SSL(_cfg("smtp-host"), _cfgi("smtp-port"))
     smtp.ehlo()
-    smtp.starttls()
     smtp.login(_cfg("smtp-user"), _cfg("smtp-password"))
     with open("emails/new_donation") as f:
         tmpl = Template(f.read())
@@ -106,9 +102,8 @@ def send_new_donation(user, donation):
 def send_cancellation_notice(user, donation):
     if _cfg("smtp-host") == "":
         return
-    smtp = smtplib.SMTP(_cfg("smtp-host"), _cfgi("smtp-port"))
+    smtp = smtplib.SMTP_SSL(_cfg("smtp-host"), _cfgi("smtp-port"))
     smtp.ehlo()
-    smtp.starttls()
     smtp.login(_cfg("smtp-user"), _cfg("smtp-password"))
     with open("emails/cancelled") as f:
         tmpl = Template(f.read())
