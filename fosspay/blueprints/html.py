@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, abort, request, redirect, session, url_for, send_file, Response
 from flask_login import current_user, login_user, logout_user
 from datetime import datetime, timedelta
+from fosspay.blacklist import email_blacklist
 from fosspay.objects import *
 from fosspay.database import db
 from fosspay.common import *
@@ -218,6 +219,10 @@ def donate():
         amount = int(amount)
     except:
         return { "success": False, "reason": "Invalid request" }, 400
+
+    [_, domain] = email.split("@")
+    if domain in email_blacklist:
+        return { "success": True, "new_account": False }
 
     new_account = False
     user = User.query.filter(User.email == email).first()
