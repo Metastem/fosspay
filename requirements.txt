@@ -4,6 +4,7 @@ Jinja2
 Flask-Misaka
 Flask-Login
 psycopg2
+requests
 bcrypt
 gunicorn
 sqlalchemy-utils
