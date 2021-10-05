@@ -8,7 +8,6 @@ from fosspay.config import _cfg
 
 import json
 import urllib
-import requests
 import xml.etree.ElementTree as ET
 import hashlib
 
