@@ -236,7 +236,7 @@ def donate():
         db.add(user)
     else:
         customer = stripe.Customer.retrieve(user.stripe_customer)
-        new_source = customer.sources.create(source=stripe_token)
+        new_source = customer.create_source(user.stripe_customer, source=stripe_token)
         customer.default_source = new_source.id
         customer.save()
 
